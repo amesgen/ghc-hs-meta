@@ -4,6 +4,8 @@
 {-# LANGUAGE TemplateHaskellQuotes #-}
 {-# LANGUAGE ViewPatterns #-}
 
+#include "Internal.hs"
+
 module Language.Haskell.Meta.Translate (toExp) where
 
 #if MIN_VERSION_ghc(9,2,0)

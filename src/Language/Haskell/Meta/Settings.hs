@@ -4,6 +4,8 @@
 {-# LANGUAGE ViewPatterns #-}
 {-# OPTIONS_GHC -Wno-missing-fields -Wno-name-shadowing -Wno-unused-imports #-}
 
+#include "Internal.hs"
+
 -- | Settings needed for running the GHC Parser.
 module Language.Haskell.Meta.Settings (baseDynFlags) where
 
@@ -175,5 +177,5 @@ fakeLlvmConfig = ([], [])
 
 baseDynFlags :: [GhcTH.Extension] -> DynFlags
 baseDynFlags exts =
-  let enable = GhcTH.TemplateHaskellQuotes : exts
+  let enable = toEnum . fromEnum <$> GhcTH.TemplateHaskellQuotes : exts
    in foldl xopt_set (defaultDynFlags fakeSettings fakeLlvmConfig) enable

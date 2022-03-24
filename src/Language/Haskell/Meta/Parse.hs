@@ -1,6 +1,8 @@
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE ViewPatterns #-}
 
+#include "Internal.hs"
+
 -- | This module is here to parse Haskell expression using the GHC Api
 module Language.Haskell.Meta.Parse (parseExp, parseExpWithExts, parseExpWithFlags, parseHsExpr) where
 
